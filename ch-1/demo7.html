@@ -1,0 +1,28 @@
+<div id="app">
+    <fieldset>
+        <legend>⾃定义组件</legend>
+        <ul>
+            <todo-item v-for="todo in
+items" :todo="todo" :key="todo.id"></todo-item>
+        </ul>
+    </fieldset>
+</div>
+<script>
+    const App = {
+        data() {
+            return {
+                items: [
+                    { id: 0, text: 'item0' },
+                    { id: 1, text: 'item1' },
+                    { id: 2, text: 'item2' },
+                ]
+            }
+        }
+    }
+    const app = Vue.createApp(App)
+    app.component('todo-item', {
+        props: ['todo'],
+        template: '<div>{{todo.text}}</div>'
+    })
+    app.mount('#app')
+</script>
