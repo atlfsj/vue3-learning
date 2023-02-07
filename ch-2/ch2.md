@@ -39,3 +39,5 @@ unmounted
 ### 4. 组件销毁测试
 
 ![uTools_1675784270764.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4e598dd74c94e4fa8417f1a1a28ef6d~tplv-k3u1fbpfcp-watermark.image?)
+
+[补充](https://juejin.cn/post/7197414988058132541)
