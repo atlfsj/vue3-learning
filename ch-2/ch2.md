@@ -57,7 +57,7 @@ mounted() {
  this.$nextTick(function () {
  // 仅在渲染整个视图之后运⾏的代码
  })
+ }
  ```
-}
 
 ### [补充](https://juejin.cn/post/7197414988058132541)
