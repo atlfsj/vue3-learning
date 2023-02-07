@@ -40,4 +40,24 @@ unmounted
 
 ![uTools_1675784270764.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4e598dd74c94e4fa8417f1a1a28ef6d~tplv-k3u1fbpfcp-watermark.image?)
 
-[补充](https://juejin.cn/post/7197414988058132541)
+### 问题
+1. Vue有哪些生命周期钩⼦？
+2. 如果需要发送Ajax请求，最好放在哪个钩⼦内？
+3. 父子组件嵌套时，⽗组件视图和⼦组件视图渲染完成谁先谁后？
+4. 父子组件嵌套时，如果希望在所有组件视图都渲染完成后再执⾏操
+作，该如何做？
+
+### 解答
+1. beforeCreate、created、beforeMount、mounted、beforeUpdate、updated、beforeUnmount、unmounted
+2. created
+3. 不确定
+4. 
+``` 
+mounted() {
+ this.$nextTick(function () {
+ // 仅在渲染整个视图之后运⾏的代码
+ })
+ ```
+}
+
+### [补充](https://juejin.cn/post/7197414988058132541)
