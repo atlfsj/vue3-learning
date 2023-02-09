@@ -1,6 +1,9 @@
 ## 应用实例与组件实例
-### 1. 创建app 应用实例， vm 根组件实例
-### 2. 生命周期： 
+
+### 1. 创建 app 应用实例， vm 根组件实例
+
+### 2. 生命周期：
+
 ```
 beforeCreate
 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用
@@ -30,6 +33,7 @@ unmounted
 卸载组件实例后调⽤。调⽤此钩⼦时，组件实例的所有指令都被解除绑定，所有事
 件侦听器都被移除，所有⼦组件实例被卸载
 ```
+
 ![uTools_1675767675572.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2258af87524d4fc1b26a8bb325c6a836~tplv-k3u1fbpfcp-watermark.image?)
 
 ### 3. 生命周期测试（demo2）
@@ -39,3 +43,5 @@ unmounted
 ### 4. 组件销毁测试
 
 ![uTools_1675784270764.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4e598dd74c94e4fa8417f1a1a28ef6d~tplv-k3u1fbpfcp-watermark.image?)
+
+### [补充](https://juejin.cn/post/7197414988058132541)

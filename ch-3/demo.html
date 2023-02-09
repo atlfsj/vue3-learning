@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <span>{{text}}</span>
+        <p>{{result}}</p>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const delayer1s = () => new Promise(resolve => setTimeout(()=>resolve('jirengu'), 1000));
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    name: '',
+                    result:''
+                }
+            },
+            watch: {                                  // 输入内容显示联想词
+                async name(newname, oldname) {
+                    let result = await delayer1s()
+                    this.result = result
+                    console.log(oldname + '-->' + newname, result)
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
+
