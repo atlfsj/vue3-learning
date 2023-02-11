@@ -44,8 +44,6 @@ unmounted
 
 ![uTools_1675784270764.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4e598dd74c94e4fa8417f1a1a28ef6d~tplv-k3u1fbpfcp-watermark.image?)
 
-<<<<<<< HEAD
-=======
 ### 问题
 1. Vue有哪些生命周期钩⼦？
 2. 如果需要发送Ajax请求，最好放在哪个钩⼦内？
@@ -66,5 +64,4 @@ mounted() {
  }
  ```
 
->>>>>>> cf36476bf9fa26273e031d3b65aad1ea3c13a426
 ### [补充](https://juejin.cn/post/7197414988058132541)
