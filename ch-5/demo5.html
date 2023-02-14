@@ -1,0 +1,20 @@
+<div id="app">
+    <font-size step="1" v-model="fontSize"></font-size>
+    <font-size step="4" v-model="fontSize"></font-size>
+    <p :style="{fontSize:fontSize+'px'}">Hello {{fontSize}}</p>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const app = Vue.createApp({
+        data() { return { fontSize: 16 } }
+    })
+    app.component('font-size', {
+        props: ['modelValue', 'step'],
+        template: `
+      <div>step: {{modelValue}}
+        <button @click="$emit('update:modelValue', +step+modelValue)">+</button>
+        <button @click="$emit('update:modelValue', modelValue-step)">-</button>
+      </div>`
+    })
+    app.mount('#app')
+</script>

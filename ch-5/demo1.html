@@ -1,0 +1,29 @@
+<body>
+    <div id="app">
+        <button @click="isShow=!isShow">Toggle</button>
+        <p v-if="isShow">v-if content</p>
+        <p v-show="isShow">v-show content</p>
+        // 这下两行是由组件控制的
+        <child v-if="isShow" title="v-if"></child>
+        <child v-show="isShow" title="v-show"></child>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return { isShow: true }
+            }
+        })
+        app.component('child', {    // 注册全局组件child
+            props: ['title'],
+            template: `<div>component {{title}}</div>`,  // 插入元素的位置，内容
+            created() {
+                console.log('child created', this.title)
+            },
+            unmounted() {
+                console.log('child unmounted', this.title)
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>

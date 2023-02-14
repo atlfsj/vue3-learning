@@ -1,0 +1,23 @@
+<div id="app">
+    <font-size step="1" :val="fontSize" @plus="fontSize += $event" @minus="fontSize -= $event"></font-size>
+    <font-size step="3" :val="fontSize" @plus="fontSize += $event" @minus="fontSize -= $event"></font-size>
+    <p :style="{fontSize:fontSize+'px'}">Hello {{fontSize}}</p>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const app = Vue.createApp({
+        data() { return { fontSize: 16 } }
+    })
+    app.component('font-size', {
+        props: ['val', 'step'],
+        template: `
+ <div>step: {{step}}
+ <button @click="onPlus">+</button>
+ <button @click="$emit('minus', step)">-</button>
+ </div>`,
+        methods: {
+            onPlus() { this.$emit('plus', parseInt(this.step)) }
+        }
+    })
+    app.mount('#app')
+</script>
