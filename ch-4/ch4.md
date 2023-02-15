@@ -77,7 +77,7 @@ console.log(obj.age) // 'get age...', 100
 </script>
 ```
 
-## 2. Proxy 和 Reflect
+## 2. [Proxy 和 Reflect](https://www.jianshu.com/p/c440aac3ab1a)
 
 Proxy 对象用于创建一个对象的代理，从而实现基本操作的拦截和自定义（如属性查找、赋值、枚举、函数调用等）
 

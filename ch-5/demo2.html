@@ -1,9 +1,7 @@
 <div id="app">
     <div v-for="(item,index) in items" :key="item.id">  
         <child></child>
-        <button @click="remove(index)">delete</button>  
-        <!--遍历按钮--> 
-        console.log("child")
+        <button @click="remove(index)">delete</button> 
     </div>
     <button @click=add>add</button>
 </div>
