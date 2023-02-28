@@ -1,0 +1,24 @@
+<div id="app">
+    <component-b></component-b>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const ComponentB = {
+        template: `<div>ComponentB</div>`
+    }
+    const ComponentA = {
+        components: {
+            // 'component-b':ComponentB,
+            ComponentB
+        },
+        template: `
+            <div>ComponentA</div>
+            <component-b></component-b>
+        `
+    }
+    const App = {
+        components: { ComponentB }    //局部只能局部用
+    }
+    Vue.creatApp(App).mount('#app')
+</script>
+

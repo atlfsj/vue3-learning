@@ -1,0 +1,23 @@
+<div id="app">
+    <h1>{{username}}</h1>
+    <user class="username" v-model:user="username"></user>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const User = {
+        props: ['user'],
+        template: `<div>{{user}} <button @click="update
+User">update</button></div>`,
+        methods: {
+            updateUser() {
+                this.$emit('update:user', this.user + '!')
+            }
+        }
+    }
+    Vue.createApp({
+        components: { User },
+        data() {
+            return { username: 'hunger' }
+        }
+    }).mount('#app')
+</script>
