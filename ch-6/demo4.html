@@ -6,7 +6,7 @@
 <script>
     const User = {
         props: ['dataUser'],
-        events: ['user-change'],
+        events: ['user-change'],    // 数组，放监听的事件，没有也可以
         template: `<div>{{dataUser}} <button @click="updateUser">update</button></div>`,
         methods: {
             updateUser() {

@@ -1,0 +1,25 @@
+<div id="app">
+    <news>hello world</news>
+    <news v-slot="p"> {{p.item}}</news>    <!--p可换名称-->
+    <news v-slot="props"> 第{{props.index}}章 {{props.item}}</news>
+    <news v-slot="{item, index}"> 第{{index}}章 {{item}}</news>  <!--简写-->
+    <news v-slot="{ item }">✔ {{item}}</news>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const News = {
+        data() { return { news: ['first news', 'second news'] } },
+        template: `<ul>        
+                <li v-for="(item, index) in news">
+                    <slot :item="item" :index="index"></slot>
+                </li>
+            </ul>`
+
+            /* <li v-for="item in news">
+                <slot :item="item"></slot>
+            </li> */
+    }
+    Vue.createApp({
+        components: { News },
+    }).mount('#app')
+</script>

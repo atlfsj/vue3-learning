@@ -1,0 +1,25 @@
+<div id="app">
+    <x-button>
+        <icon name="yes"></icon> {{text}} </xbutton>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const Icon = {
+        props: ['name'],
+        template: `<span>{{type}}</span>`,
+        computed: {
+            type() { return this.name === 'yes' ? '✔' : '✘' }
+        }
+    }
+    const XButton = {
+        template: `<button>
+<slot></slot>
+</button>`
+    }
+    Vue.createApp({
+        components: { XButton, Icon },
+        data() {
+            return { text: '正确' }
+        }
+    }).mount('#app')
+</script>
