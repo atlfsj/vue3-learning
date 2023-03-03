@@ -122,7 +122,7 @@
 </script>
 ```
 
-## Provide Inject [以下内容下节课讲]
+## Provide Inject
 
 - 适用于深度嵌套的组件，父组件可以为所有子组件直接
   提供数据
