@@ -1,0 +1,27 @@
+<div id="app">
+    <div class="box" :style="{width:`${R}px`, backgroundColor: `rgb(${R},${G},${B})`}"></div>
+    <div>
+        <input type="range" min="0" max="255" v-model="R">R: {{R}} <br>
+        <input type="range" min="0" max="255" v-model="G">G: {{G}} <br>
+        <input type="range" min="0" max="255" v-model="B">B: {{B}} <br>
+    </div>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data(){
+            return{
+                R: 0,
+                G: 0,
+                B: 0,
+            }
+        }
+    }).mount('#app')
+</script>
+
+<style>
+    .box{
+        width: 100px;
+        height: 100px;
+    }
+</style>

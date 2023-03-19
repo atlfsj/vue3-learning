@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <fieldset>
+            <legend>数据驱动视图</legend>
+            {{ message }}{{ fuck }}
+        </fieldset>
+    </div>
+    <script>
+        const App = {
+            data() {
+                return {
+                    fuck:"ok" ,
+                    message: 'Hello Vue!!'
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+
+</html>

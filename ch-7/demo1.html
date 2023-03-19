@@ -1,0 +1,20 @@
+<div id="app">
+    <x-button :text="text"> {{text}} </xbutton>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+   
+    const XButton = {
+        props:['text'],  // 无插槽，无:text
+        template: `<button>
+<slot></slot>    // 有插槽
+{{text}}         // 无插槽
+</button>`
+    }
+    Vue.createApp({
+        components: { XButton },
+        data() {
+            return { text: '正确' }
+        }
+    }).mount('#app')
+</script>

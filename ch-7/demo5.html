@@ -1,0 +1,29 @@
+<div id="app">
+    <toolbar></toolbar>
+    <button @click="isDark=!isDark">切换</button>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const ThemeButton = {
+        inject: ['theme'],
+        template: `
+            <div :class="['button', theme]" ><slot></slot></div>
+        `
+    }
+    const Toolbar = {
+        components: { ThemeButton },
+        inject: ['theme'],
+        template: `<div :class="['toolbar', theme]">
+            <theme-button>确定</theme-button>
+        </div>`
+    }
+    Vue.createApp({
+        data() { return { isDark: false } },
+        provide: { theme: 'dark' },
+        /* provide() {
+            return { theme: this.isDark?'dark':'white'
+        }
+    },    */ 
+        components: { Toolbar },
+    }).mount('#app')
+</script>

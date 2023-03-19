@@ -1,0 +1,21 @@
+<div id="app">
+    <User :name="username"></User>
+    <User :name="user"></User>
+    <User name="username"></User>
+
+    <User :name="3+4"></User> // 布尔值
+    <User name="3+4"></User> // 字符串
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const User = {
+        props:['name'],
+        template: `<div>{{name}}</div>`    // propKey
+    }   // 怎么找到确定的div的，是子组件向根组件传递参数？
+    Vue.createApp({
+        components:{ User },
+        data(){
+            return { username:'hunger' }   // propValue
+        }
+    }).mount('#app')
+</script>

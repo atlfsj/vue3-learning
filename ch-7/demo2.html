@@ -1,0 +1,30 @@
+<div id="app">
+    <x-button type="big"> OK </x-button>
+    <x-button type="small"></x-button>
+    <x-button type="default"> {{type}} </x-button>
+    <!--type只能用在子组件里，不能用在这里-->
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const XButton = {
+        props: ['type'],
+        template: `<button :class="'btn-'+type">
+<slot>确定</slot>   
+</button>`
+    }
+    Vue.createApp({
+        components: { XButton },
+        data(){
+            // return {type:'type'}
+        }
+    }).mount('#app')
+</script>
+<style>
+    .btn-big {
+        padding: 8px 16px;
+    }
+
+    .btn-small {
+        padding: 2px 4px;
+    }
+</style>

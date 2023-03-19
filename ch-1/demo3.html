@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<div id="app">
+    <fieldset>
+        <legend>属性绑定</legend>
+        <a v-bind:href="url" :title="title">{{title}}</a>
+        <!-- or -->
+        <a href="url" title="title">{{title}}</a>    // 无属性绑定
+    </fieldset>
+</div>
+<script>
+    const App = {
+        data() {
+            return {
+                title: "你好",
+                url: "https://v3.vuejs.org/"
+            }
+        }
+    }
+    Vue.createApp(App).mount('#app')
+</script>
+</body >
+
+</html >

@@ -1,0 +1,62 @@
+<div id="app">
+    <fieldset>
+        <legend> value 和 input </legend>
+        <!-- value 和 input -->
+        <input v-model="message" /> {{ message }}
+    </fieldset>
+    <fieldset>
+        <legend> value 和 change </legend>
+        <!-- value 和 change -->
+        <textarea v-model.lazy="message"></textarea> {{ message }}
+    </fieldset>
+    <fieldset>
+        <legend> 复选框 </legend>
+        <input type="checkbox" v-model="checked" /> {{checked}}
+    </fieldset>
+    <fieldset>
+        <legend> 多个复选框 </legend>
+        <input type="checkbox" value="a" v-model="list" />
+        <input type="checkbox" value="b" v-model="list" /> {{list}}
+    </fieldset>
+    <fieldset>
+        <legend> 单选框 </legend>
+        <input type="radio" value="a" v-model="theme" />
+        <input type="radio" value="b" v-model="theme" /> {{theme}}
+
+        <legend> 单选框 </legend>
+        <input type="radio" value="c" v-model="theme" />
+        <input type="radio" value="d" v-model="theme" /> {{theme}}
+
+        <legend> 单选框 </legend>
+        <input type="radio" value="a" v-model="theme2" />
+        <input type="radio" value="b" v-model="theme2" /> {{theme2}}
+    </fieldset>
+
+    <fieldset>
+        <legend> select </legend>
+        <select v-model="selected" multiple>  // 多选数组
+            <option value="AA">A</option>
+            <option value="BB">B</option>
+            <option value="CC">C</option>
+        </select>
+        <br />
+        <span>Selected: {{ selected }}</span>
+    </fieldset>
+
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {    // 可以给个初始值
+                message: 'aa',
+                checked: false,
+                list: [],
+                theme: '',
+                theme2: '',
+                selected: []
+            }
+        }
+    }).mount('#app')
+</script>

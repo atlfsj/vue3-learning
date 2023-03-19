@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<div id="app">
+    <fieldset>
+        <legend>条件渲染</legend>
+        <p v-if="isShow"> Hello Vue.js</p>
+        <!--<button @click="fuck">切换展示</button>-->
+        <button @click="isShow = !isShow">切换展示</button>
+    </fieldset>
+</div>
+<script>
+    const App = {
+        data() {
+            return {
+                isShow: true
+            }
+        },
+        /* methods: {
+            fuck() {
+                this.isShow = !this.isShow
+            }
+        } */
+    }
+    Vue.createApp(App).mount('#app')
+</script>
+</body>
+
+</html>

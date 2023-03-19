@@ -1,0 +1,19 @@
+<div id="app">
+    <button @click="show = !show">Toggle</button>
+    <transition mode="out-in" enter-activeclass="animate__animated animate__fadeInUp"
+        leave-activeclass="animate__animated animate__fadeOutDown">
+        <p v-if="show" key="hello">hello</p>
+        <p v-else="!show" key="world">world</p>
+    </transition>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return { show: true }
+        }
+    }).mount('#app')
+</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate
+.css/4.1.0/animate.min.css" rel="stylesheet" />
+<!-- https://animate.style/ -->

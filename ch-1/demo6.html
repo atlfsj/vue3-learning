@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<div id="app">
+    <fieldset>
+        <legend>列表渲染</legend>
+        <p v-for="f in items"> {{ f }} </p>
+        <button @click="add">添加</button>
+    </fieldset>
+</div>
+<script>
+    const App = {
+        data() {
+            return {
+               items:['item1', 'item2'] 
+            }
+        },
+        methods: {
+            add() {
+                this.items.push('item' + this.items.length)
+            }
+        }
+    }
+    Vue.createApp(App).mount('#app')
+</script>
+</body>
+
+</html>

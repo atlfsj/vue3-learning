@@ -1,0 +1,26 @@
+<div id="app">
+    <user v-bind="user"></user>
+    <user v-bind:username="user.username" :id="[1,2,3]"></user>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+    const User = {
+        props: ['username', 'id'],
+        template: `<div>{{username}}, {{id}}</div>`
+    }
+
+
+
+    Vue.createApp({
+        components: { User },
+        data() {
+            return {
+                user: {
+                    username: 'hunger',
+                    id: 1
+                }
+            }
+        }
+    }).mount('#app')
+</script>

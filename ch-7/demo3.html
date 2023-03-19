@@ -1,0 +1,26 @@
+<div id = "app">
+    <layout>
+        <template v-slot:header>
+            <h1>页面header</h1>
+        </template>
+        <template #default>
+            <p>页面content</p>
+        </template>
+        <template #footer>
+            <div>页面footer</div>
+        </template>
+    </layout>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const Layout = {
+        template: `<div class="container">
+            <header> <slot name="header"></slot> </header>
+            <main> <slot></slot></main>
+            <footer><slot name="footer"></slot></footer>
+            </div>`
+    }
+    Vue.createApp({
+        components:{ Layout },
+    }).mount('#app')
+</script>

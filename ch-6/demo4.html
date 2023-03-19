@@ -1,0 +1,23 @@
+<div id="app">
+    <h1>{{username}}</h1>
+    <user class="username" :data-user="username" @userchange="username=$event"></user>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const User = {
+        props: ['dataUser'],
+        events: ['user-change'],    // 数组，放监听的事件，没有也可以
+        template: `<div>{{dataUser}} <button @click="updateUser">update</button></div>`,
+        methods: {
+            updateUser() {
+                this.$emit('userchange', this.dataUser + '!')
+            }
+        }
+    }
+    Vue.createApp({
+        components: { User },
+        data() {
+            return { username: 'hunger' }
+        }
+    }).mount('#app')
+</script>

@@ -1,0 +1,29 @@
+<div id="app">
+    <div :class="['box', {active:isActive}]">box</div>
+    <button @click="isActive = !isActive">Click me</button>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                isActive: false
+            }
+        }
+    }).mount('#app')
+</script>
+<style>
+    .box {
+        width: 250px;
+        height: 250px;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .active {
+        transform: translateX(100px);
+    }
+</style>

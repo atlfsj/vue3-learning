@@ -1,0 +1,22 @@
+<div id="app">
+    <div v-for="(item,index) in items" :key="item.id">  
+        <child></child>
+        <button @click="remove(index)">delete</button> 
+    </div>
+    <button @click=add>add</button>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const app = Vue.createApp({
+        data() { return { items: [] } },
+        methods: {
+            remove(index) { this.items.splice(index, 1) },
+            add() { this.items.push({ id: Math.random() }) }
+        }
+    })
+    app.component('child', {
+        data() { return { counter: Math.random() } },
+        template: `<span>{{counter}} </span>`
+    })    // 为什么一开始没有执行，add后才有span。
+    app.mount('#app')
+</script>

@@ -1,0 +1,43 @@
+<div id="app">
+    <button v-for="tab in tabs" :key="tab" :class="{ active: currentTab=== tab }" @click="currentTab = tab">
+        {{ tab }}
+    </button>
+    <transition mode="out-in" enter-active-class="animate__animated animate__fadeInLeft"
+        leave-active-class="animate__animated animate__fadeOutRight">
+        <keep-alive>
+            <component :is="currentTab" class="tab"></component>
+        </keep-alive>
+    </transition>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                currentTab: 'Tab1',
+                tabs: ['Tab1', 'Tab2']
+            }
+        },
+    })
+    app.component('Tab1', {
+        template: `<div>Tab1 content</div>`,
+    })
+    app.component('Tab2', {
+        template: `<div>
+<input v-model="value" /> {{value}}
+</div>`,
+        data() { return { value: 'hello' } },
+    })
+    app.mount('#app')
+</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css" rel="stylesheet" />
+<style>
+    :root {
+        --animate-duration: 0.3s;
+        --animate-delay: 0;
+    }
+
+    .active {
+        background: #ccc;
+    }
+</style>

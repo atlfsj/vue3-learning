@@ -1,0 +1,38 @@
+<div id="app">
+    <button v-for="tab in tabs" :key="tab" :class="{ active: currentTab === tab }" @click="currentTab = tab">
+        {{ tab }}
+    </button>
+    <keep-alive>
+        <component :is="currentTab" class="tab"></component>
+    </keep-alive>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                currentTab: 'Tab1',
+                tabs: ['Tab1', 'Tab2']
+            }
+        },
+    })
+    app.component('Tab1', {
+        template: `<div>Tab1 content</div>`,
+        created() { console.log('tab1 created') },
+        activated() { console.log('tab1 activated') }
+    })
+    app.component('Tab2', {
+        template: `<div>
+      <input v-model="value" /> {{value}}
+    </div>`,
+        data() { return { value: 'hello' } },
+        created() { console.log('tab2 created') },
+        activated() { console.log('tab2 activated') }
+    })
+    app.mount('#app')
+</script>
+<style>
+    .active {
+        background: #e0e0e0;
+    }
+</style>

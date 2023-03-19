@@ -1,0 +1,44 @@
+<div id="app">
+    <button @click="add">添加</button>
+    <transition-group name="list" tag="div">
+        <div v-for="(value, index) in news" :key="value">
+            {{value}}
+            <button @click="news.splice(index, 1)">删除</button>
+        </div>
+    </transition-group>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                news: []
+            }
+        },
+        methods: {
+            add() {
+                let value = window.prompt('输入新闻')
+                if (value) {
+                    this.news.push(value)
+                    this.news = this.news.sort()
+                }
+            }
+        }
+    }).mount('#app')
+</script>
+<style>
+    .list-enter-active,
+    .list-leave-active {
+        transition: all .4s ease;
+    }
+
+    .list-enter-from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    .list-leave-to {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+</style>

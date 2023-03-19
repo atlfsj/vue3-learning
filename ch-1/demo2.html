@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<div id="app">
+    <fieldset>
+        <legend>修改数据</legend>
+        <button v-on:click="add">Click Me</button>
+        <!-- or -->
+        <button @click="add">Click Me</button>
+        {{ counter }}
+    </fieldset>
+</div>
+<script>
+    const App = {
+        data() {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            add() {
+                this.counter++
+            }
+        }
+    }
+    Vue.createApp(App).mount('#app')
+</script>
+
+</body>
+
+</html>

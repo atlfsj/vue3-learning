@@ -1,0 +1,17 @@
+<div id="app">
+    <button @click="show = !show">Toggle</button>
+    <transition name="fade" :duration="400" enter-active-class="animate__animated animate__fadeInTopRight"
+        leave-active-class="animate__animated animate__fadeOutTopRight">
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return { show: true }
+        }
+    }).mount('#app')
+</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css" rel="stylesheet" />
+<!-- https://animate.style/ -->

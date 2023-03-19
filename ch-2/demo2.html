@@ -1,0 +1,39 @@
+<div id="app">
+    <fieldset>
+        <legend>生命周期钩子</legend>
+        <span id="msg">{{ message }}</span>
+        <button @click="change">Click</button>
+    </fieldset>
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    const App = {
+        data() {
+            return { message: 'Hello Vue' }
+        },
+        methods: {
+            change() {
+                this.message += '!'
+            }
+        },
+        beforeCreate() {
+            console.log('beforeCreate', this.message, this.$el)
+        },
+        created() {
+            console.log('created', this.message, this.$el)
+        },
+        beforeMount() {
+            console.log('beforeMount', this.message, this.$el)
+        },
+        mounted() {
+            console.log('mounted', this.message, this.$el)
+        },
+        beforeUpdate() {
+            console.log('beforeUpdate', this.message, document.querySelector('#msg').innerText)
+        },
+        updated() {
+            console.log('updated', this.message, document.querySelector('#msg').innerText)
+        }
+    }
+    Vue.createApp(App).mount('#app')
+</script>

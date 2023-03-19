@@ -1,0 +1,48 @@
+<div id="app">
+    <fieldset>
+        <legend>销毁生命周期钩子</legend>
+        <child v-if="isShow"></child>
+        <button @click="isShow = !isShow">Click</button>
+    </fieldset>
+</div>
+
+<script>
+    const App = {
+            data() {
+                return { isShow: true }
+            },
+            beforeCreate() {
+                console.log('root beforeCreate', this.message, this.$el)
+            },
+            created() {
+                console.log('root created', this.message, this.$el)
+            },
+            beforeMount() {
+                console.log('root beforeMount', this.message, this.$el)
+            },
+            mounted() {
+                console.log('root mounted', this.message, this.$el)
+            }
+        }
+        const app = Vue.createApp(App)
+        app.component('child', {
+            template: '<div>{{text}}</div>',
+            data() {
+                return { text: 'I am child' }
+            },
+            created() {
+                console.log('child created')
+            },
+            mounted() {
+                console.log('child mounted')
+            },
+            beforeUnmount() {
+                console.log('child beforeUnmount')
+            },
+            unmounted() {
+                console.log('child unmounted')
+            },
+        })
+        app.mount('#app')
+
+</script>
